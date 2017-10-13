@@ -6,10 +6,14 @@ import java.math.BigDecimal;
 import java.util.function.Predicate;
 
 public class Conditions {
-    public static Condition<BigDecimal> equalTo(Double other) {
-        Predicate<BigDecimal> hasValueOf = bigDecimal ->
-                bigDecimal.equals(BigDecimal.valueOf(other));
+    public static Condition<BigDecimal> equalTo(Double otherValue) {
+        Predicate<BigDecimal> hasValueOf = bigDecimal -> {
+            BigDecimal otherBigDecimal = BigDecimal.valueOf(otherValue);
+            BigDecimal difference = bigDecimal.subtract(otherBigDecimal);
 
-        return new Condition<>(hasValueOf, "Big decimals are equal");
+            return difference.doubleValue() == 0.0;
+        };
+
+        return new Condition<>(hasValueOf, "equals to %s", otherValue);
     }
 }
