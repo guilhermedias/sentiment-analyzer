@@ -1,0 +1,109 @@
+package solutions.moot.feelings.domain.analyzer;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+import solutions.moot.feelings.domain.aggregator.VadAggregator;
+import solutions.moot.feelings.domain.dictionary.VadDictionary;
+import solutions.moot.feelings.domain.dictionary.VadEntry;
+import solutions.moot.feelings.domain.dictionary.VadValue;
+
+import java.math.BigDecimal;
+import java.util.Optional;
+
+import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+import static solutions.moot.feelings.commons.Conditions.equalTo;
+
+@RunWith(MockitoJUnitRunner.class)
+public class SimpleVadVadSentenceAnalyzerTest {
+    private SimpleVadVadSentenceAnalyzer analyzer;
+
+    @Mock
+    private VadDictionary dictionary;
+
+    @Mock
+    private VadAggregator aggregator;
+
+    @Before
+    public void setUp() {
+        analyzer = new SimpleVadVadSentenceAnalyzer(dictionary, aggregator);
+    }
+
+    @Test
+    public void shouldAnalyzeEmptySentence() {
+        when(dictionary.getEntry("")).thenReturn(Optional.empty());
+
+        when(aggregator.aggregate("", emptyList())).thenReturn(
+                new VadValue(
+                        BigDecimal.ZERO,
+                        BigDecimal.ZERO,
+                        BigDecimal.ZERO
+                ));
+
+        VadValue sentenceVadValue = analyzer.analyzeSentence("");
+
+        assertThat(sentenceVadValue.getValence()).is(equalTo(0.0));
+        assertThat(sentenceVadValue.getArousal()).is(equalTo(0.0));
+        assertThat(sentenceVadValue.getDominance()).is(equalTo(0.0));
+    }
+
+    @Test
+    public void shouldAnalyzeSingleWordSentence() {
+        VadEntry wordVadEntry = new VadEntry("abnormal", new VadValue(
+                BigDecimal.ZERO,
+                BigDecimal.ZERO,
+                BigDecimal.ZERO
+        ));
+
+        when(dictionary.getEntry("abnormal")).thenReturn(Optional.of(wordVadEntry));
+
+        when(aggregator.aggregate("abnormal", asList(wordVadEntry))).thenReturn(
+                new VadValue(
+                        BigDecimal.ZERO,
+                        BigDecimal.ZERO,
+                        BigDecimal.ZERO
+                ));
+
+        VadValue sentenceVadValue = analyzer.analyzeSentence("abnormal");
+
+        assertThat(sentenceVadValue.getValence()).is(equalTo(0.0));
+        assertThat(sentenceVadValue.getArousal()).is(equalTo(0.0));
+        assertThat(sentenceVadValue.getDominance()).is(equalTo(0.0));
+    }
+
+    @Test
+    public void shouldAnalyzeMultipleWordsSentence() {
+        VadEntry entry1 = new VadEntry("much", new VadValue(
+                BigDecimal.ZERO,
+                BigDecimal.ZERO,
+                BigDecimal.ZERO
+        ));
+
+        VadEntry entry2 = new VadEntry("word", new VadValue(
+                BigDecimal.ZERO,
+                BigDecimal.ZERO,
+                BigDecimal.ZERO
+        ));
+
+        when(dictionary.getEntry("much")).thenReturn(Optional.of(entry1));
+        when(dictionary.getEntry("word")).thenReturn(Optional.of(entry2));
+
+        when(aggregator.aggregate("much word", asList(entry1, entry2))).thenReturn(
+                new VadValue(
+                        BigDecimal.ZERO,
+                        BigDecimal.ZERO,
+                        BigDecimal.ZERO
+                ));
+
+        VadValue sentenceVadValue = analyzer.analyzeSentence("much word");
+
+        assertThat(sentenceVadValue.getValence()).is(equalTo(0.0));
+        assertThat(sentenceVadValue.getArousal()).is(equalTo(0.0));
+        assertThat(sentenceVadValue.getDominance()).is(equalTo(0.0));
+    }
+}
