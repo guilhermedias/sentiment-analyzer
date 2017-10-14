@@ -9,6 +9,7 @@ import solutions.moot.feelings.domain.aggregator.VadAggregator;
 import solutions.moot.feelings.domain.dictionary.VadDictionary;
 import solutions.moot.feelings.domain.dictionary.VadEntry;
 import solutions.moot.feelings.domain.dictionary.VadValue;
+import solutions.moot.feelings.domain.lemmatizer.Lemmatizer;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -24,6 +25,9 @@ public class SimpleVadVadSentenceAnalyzerTest {
     private SimpleVadVadSentenceAnalyzer analyzer;
 
     @Mock
+    private Lemmatizer lemmatizer;
+
+    @Mock
     private VadDictionary dictionary;
 
     @Mock
@@ -31,11 +35,14 @@ public class SimpleVadVadSentenceAnalyzerTest {
 
     @Before
     public void setUp() {
-        analyzer = new SimpleVadVadSentenceAnalyzer(dictionary, aggregator);
+        analyzer = new SimpleVadVadSentenceAnalyzer(lemmatizer, dictionary, aggregator);
     }
 
     @Test
     public void shouldAnalyzeEmptySentence() {
+        when(lemmatizer.lemmas(""))
+                .thenReturn(emptyList());
+
         when(dictionary.getEntry("")).thenReturn(Optional.empty());
 
         when(aggregator.aggregate("", emptyList())).thenReturn(
@@ -54,6 +61,9 @@ public class SimpleVadVadSentenceAnalyzerTest {
 
     @Test
     public void shouldAnalyzeSingleWordSentence() {
+        when(lemmatizer.lemmas("abnormal"))
+                .thenReturn(asList("abnormal"));
+
         VadEntry wordVadEntry = new VadEntry("abnormal", new VadValue(
                 BigDecimal.ZERO,
                 BigDecimal.ZERO,
@@ -78,6 +88,9 @@ public class SimpleVadVadSentenceAnalyzerTest {
 
     @Test
     public void shouldAnalyzeMultipleWordsSentence() {
+        when(lemmatizer.lemmas("much word"))
+                .thenReturn(asList("much", "word"));
+
         VadEntry entry1 = new VadEntry("much", new VadValue(
                 BigDecimal.ZERO,
                 BigDecimal.ZERO,
