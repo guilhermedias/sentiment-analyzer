@@ -51,4 +51,9 @@ public class AppConfig {
                                                          VadAggregator aggregator) {
         return new SimpleVadVadSentenceAnalyzer(lemmatizer, loggingVadDictionary, aggregator);
     }
+
+    @Bean
+    public AppLogic appLogic(VadSentenceAnalyzer analyzer) {
+        return new AppLogic(analyzer);
+    }
 }
