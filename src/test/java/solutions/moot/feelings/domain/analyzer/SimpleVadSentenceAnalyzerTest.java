@@ -21,8 +21,8 @@ import static org.mockito.Mockito.when;
 import static solutions.moot.feelings.commons.Conditions.equalTo;
 
 @RunWith(MockitoJUnitRunner.class)
-public class SimpleVadVadSentenceAnalyzerTest {
-    private SimpleVadVadSentenceAnalyzer analyzer;
+public class SimpleVadSentenceAnalyzerTest {
+    private SimpleVadSentenceAnalyzer analyzer;
 
     @Mock
     private Lemmatizer lemmatizer;
@@ -35,7 +35,7 @@ public class SimpleVadVadSentenceAnalyzerTest {
 
     @Before
     public void setUp() {
-        analyzer = new SimpleVadVadSentenceAnalyzer(lemmatizer, dictionary, aggregator);
+        analyzer = new SimpleVadSentenceAnalyzer(lemmatizer, dictionary, aggregator);
     }
 
     @Test

@@ -11,12 +11,12 @@ import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
-public class SimpleVadVadSentenceAnalyzer implements VadSentenceAnalyzer {
+public class SimpleVadSentenceAnalyzer implements VadSentenceAnalyzer {
     private Lemmatizer lemmatizer;
     private VadDictionary dictionary;
     private VadAggregator aggregator;
 
-    public SimpleVadVadSentenceAnalyzer(Lemmatizer lemmatizer, VadDictionary dictionary, VadAggregator aggregator) {
+    public SimpleVadSentenceAnalyzer(Lemmatizer lemmatizer, VadDictionary dictionary, VadAggregator aggregator) {
         this.lemmatizer = lemmatizer;
         this.dictionary = dictionary;
         this.aggregator = aggregator;

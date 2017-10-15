@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import solutions.moot.feelings.domain.aggregator.MeanValueVadAggregator;
 import solutions.moot.feelings.domain.aggregator.VadAggregator;
-import solutions.moot.feelings.domain.analyzer.SimpleVadVadSentenceAnalyzer;
+import solutions.moot.feelings.domain.analyzer.SimpleVadSentenceAnalyzer;
 import solutions.moot.feelings.domain.analyzer.VadSentenceAnalyzer;
 import solutions.moot.feelings.domain.dictionary.VadDictionary;
 import solutions.moot.feelings.domain.lemmatizer.Lemmatizer;
@@ -50,7 +50,7 @@ public class AppConfig {
     public VadSentenceAnalyzer simpleVadSentenceAnalyzer(Lemmatizer lemmatizer,
                                                          VadDictionary loggingVadDictionary,
                                                          VadAggregator aggregator) {
-        return new SimpleVadVadSentenceAnalyzer(lemmatizer, loggingVadDictionary, aggregator);
+        return new SimpleVadSentenceAnalyzer(lemmatizer, loggingVadDictionary, aggregator);
     }
 
     @Bean
