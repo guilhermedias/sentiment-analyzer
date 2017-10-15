@@ -12,6 +12,7 @@ import solutions.moot.feelings.domain.lemmatizer.Lemmatizer;
 import solutions.moot.feelings.infra.dictionary.InMemoryCsvVadDictionary;
 import solutions.moot.feelings.infra.lemmatizer.NlpCoreBasedLemmatizer;
 import solutions.moot.feelings.infra.proxy.LoggingVadDictionaryProxy;
+import solutions.moot.util.SentenceVadValuePrinter;
 
 import java.io.IOException;
 
@@ -53,7 +54,12 @@ public class AppConfig {
     }
 
     @Bean
-    public AppLogic appLogic(VadSentenceAnalyzer analyzer) {
-        return new AppLogic(analyzer);
+    public SentenceVadValuePrinter sentenceVadValuePrinter() {
+        return new SentenceVadValuePrinter();
+    }
+
+    @Bean
+    public AppLogic appLogic(VadSentenceAnalyzer analyzer, SentenceVadValuePrinter sentenceVadValuePrinter) {
+        return new AppLogic(analyzer, sentenceVadValuePrinter);
     }
 }
