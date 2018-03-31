@@ -1,4 +1,4 @@
-package solutions.moot.feelings.infra.proxy;
+package solutions.moot.feelings.log;
 
 import org.slf4j.Logger;
 import solutions.moot.feelings.spec.dictionary.VadDictionary;

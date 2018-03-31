@@ -1,4 +1,4 @@
-package solutions.moot.util;
+package solutions.moot.feelings.util;
 
 import solutions.moot.feelings.spec.dictionary.VadValue;
 

@@ -1,18 +1,18 @@
-package solutions.moot;
+package solutions.moot.feelings;
 
 import org.slf4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import solutions.moot.feelings.impl.dictionary.InMemoryCsvVadDictionary;
 import solutions.moot.feelings.impl.lemmatizer.NlpCoreBasedLemmatizer;
-import solutions.moot.feelings.infra.proxy.LoggingVadDictionaryProxy;
+import solutions.moot.feelings.log.LoggingVadDictionaryProxy;
 import solutions.moot.feelings.spec.aggregator.MeanValueVadAggregator;
 import solutions.moot.feelings.spec.aggregator.VadAggregator;
 import solutions.moot.feelings.spec.analyzer.SimpleVadSentenceAnalyzer;
 import solutions.moot.feelings.spec.analyzer.VadSentenceAnalyzer;
 import solutions.moot.feelings.spec.dictionary.VadDictionary;
 import solutions.moot.feelings.spec.lemmatizer.Lemmatizer;
-import solutions.moot.util.SentenceVadValuePrinter;
+import solutions.moot.feelings.util.SentenceVadValuePrinter;
 
 import java.io.IOException;
 

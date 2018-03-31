@@ -1,4 +1,4 @@
-package solutions.moot;
+package solutions.moot.feelings;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

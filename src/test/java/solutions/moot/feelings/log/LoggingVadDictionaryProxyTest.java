@@ -1,4 +1,4 @@
-package solutions.moot.feelings.infra.proxy;
+package solutions.moot.feelings.log;
 
 import org.junit.Before;
 import org.junit.Test;
