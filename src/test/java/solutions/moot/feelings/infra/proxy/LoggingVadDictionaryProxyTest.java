@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.slf4j.Logger;
-import solutions.moot.feelings.domain.dictionary.VadDictionary;
-import solutions.moot.feelings.domain.dictionary.VadEntry;
-import solutions.moot.feelings.domain.dictionary.VadValue;
+import solutions.moot.feelings.spec.dictionary.VadDictionary;
+import solutions.moot.feelings.spec.dictionary.VadEntry;
+import solutions.moot.feelings.spec.dictionary.VadValue;
 
 import java.math.BigDecimal;
 import java.util.Optional;

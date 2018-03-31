@@ -1,6 +1,6 @@
 package solutions.moot.util;
 
-import solutions.moot.feelings.domain.dictionary.VadValue;
+import solutions.moot.feelings.spec.dictionary.VadValue;
 
 import static java.lang.String.format;
 

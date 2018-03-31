@@ -1,7 +1,7 @@
 package solutions.moot;
 
-import solutions.moot.feelings.domain.analyzer.VadSentenceAnalyzer;
-import solutions.moot.feelings.domain.dictionary.VadValue;
+import solutions.moot.feelings.spec.analyzer.VadSentenceAnalyzer;
+import solutions.moot.feelings.spec.dictionary.VadValue;
 import solutions.moot.util.SentenceVadValuePrinter;
 
 public class AppLogic {

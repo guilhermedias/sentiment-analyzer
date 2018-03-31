@@ -1,8 +1,8 @@
 package solutions.moot.feelings.infra.proxy;
 
 import org.slf4j.Logger;
-import solutions.moot.feelings.domain.dictionary.VadDictionary;
-import solutions.moot.feelings.domain.dictionary.VadEntry;
+import solutions.moot.feelings.spec.dictionary.VadDictionary;
+import solutions.moot.feelings.spec.dictionary.VadEntry;
 
 import java.util.Optional;
 

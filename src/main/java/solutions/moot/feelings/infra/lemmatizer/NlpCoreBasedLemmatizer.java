@@ -1,7 +1,7 @@
 package solutions.moot.feelings.infra.lemmatizer;
 
 import edu.stanford.nlp.simple.Sentence;
-import solutions.moot.feelings.domain.lemmatizer.Lemmatizer;
+import solutions.moot.feelings.spec.lemmatizer.Lemmatizer;
 
 import java.util.Collection;
 

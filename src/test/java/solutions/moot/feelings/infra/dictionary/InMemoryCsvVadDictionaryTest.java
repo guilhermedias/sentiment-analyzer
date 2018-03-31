@@ -2,8 +2,8 @@ package solutions.moot.feelings.infra.dictionary;
 
 import org.junit.Before;
 import org.junit.Test;
-import solutions.moot.feelings.domain.dictionary.VadEntry;
-import solutions.moot.feelings.domain.dictionary.VadValue;
+import solutions.moot.feelings.spec.dictionary.VadEntry;
+import solutions.moot.feelings.spec.dictionary.VadValue;
 
 import java.util.Optional;
 

@@ -2,9 +2,9 @@ package solutions.moot.feelings.infra.dictionary;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
-import solutions.moot.feelings.domain.dictionary.VadDictionary;
-import solutions.moot.feelings.domain.dictionary.VadEntry;
-import solutions.moot.feelings.domain.dictionary.VadValue;
+import solutions.moot.feelings.spec.dictionary.VadDictionary;
+import solutions.moot.feelings.spec.dictionary.VadEntry;
+import solutions.moot.feelings.spec.dictionary.VadValue;
 
 import java.io.IOException;
 import java.io.InputStream;
