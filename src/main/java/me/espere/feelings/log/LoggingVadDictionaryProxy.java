@@ -1,8 +1,8 @@
-package solutions.moot.feelings.log;
+package me.espere.feelings.log;
 
+import me.espere.feelings.spec.dictionary.VadDictionary;
+import me.espere.feelings.spec.dictionary.VadEntry;
 import org.slf4j.Logger;
-import solutions.moot.feelings.spec.dictionary.VadDictionary;
-import solutions.moot.feelings.spec.dictionary.VadEntry;
 
 import java.util.Optional;
 

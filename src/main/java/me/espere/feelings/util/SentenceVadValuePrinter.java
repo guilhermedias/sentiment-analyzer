@@ -1,6 +1,6 @@
-package solutions.moot.feelings.util;
+package me.espere.feelings.util;
 
-import solutions.moot.feelings.spec.dictionary.VadValue;
+import me.espere.feelings.spec.dictionary.VadValue;
 
 import static java.lang.String.format;
 

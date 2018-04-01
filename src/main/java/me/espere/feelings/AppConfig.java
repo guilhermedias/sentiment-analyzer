@@ -1,18 +1,18 @@
-package solutions.moot.feelings;
+package me.espere.feelings;
 
+import me.espere.feelings.impl.dictionary.InMemoryCsvVadDictionary;
+import me.espere.feelings.impl.lemmatizer.NlpCoreBasedLemmatizer;
+import me.espere.feelings.spec.aggregator.MeanValueVadAggregator;
+import me.espere.feelings.spec.aggregator.VadAggregator;
+import me.espere.feelings.spec.analyzer.SimpleVadSentenceAnalyzer;
+import me.espere.feelings.spec.analyzer.VadSentenceAnalyzer;
+import me.espere.feelings.spec.dictionary.VadDictionary;
+import me.espere.feelings.spec.lemmatizer.Lemmatizer;
 import org.slf4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import solutions.moot.feelings.impl.dictionary.InMemoryCsvVadDictionary;
-import solutions.moot.feelings.impl.lemmatizer.NlpCoreBasedLemmatizer;
-import solutions.moot.feelings.log.LoggingVadDictionaryProxy;
-import solutions.moot.feelings.spec.aggregator.MeanValueVadAggregator;
-import solutions.moot.feelings.spec.aggregator.VadAggregator;
-import solutions.moot.feelings.spec.analyzer.SimpleVadSentenceAnalyzer;
-import solutions.moot.feelings.spec.analyzer.VadSentenceAnalyzer;
-import solutions.moot.feelings.spec.dictionary.VadDictionary;
-import solutions.moot.feelings.spec.lemmatizer.Lemmatizer;
-import solutions.moot.feelings.util.SentenceVadValuePrinter;
+import me.espere.feelings.log.LoggingVadDictionaryProxy;
+import me.espere.feelings.util.SentenceVadValuePrinter;
 
 import java.io.IOException;
 
@@ -36,7 +36,7 @@ public class AppConfig {
     }
 
     @Bean
-    public VadDictionary loggingVadDictionary(VadDictionary inMemoryCsvVadDictionary, Logger logger)
+    public LoggingVadDictionaryProxy loggingVadDictionary(VadDictionary inMemoryCsvVadDictionary, Logger logger)
             throws IOException {
         return new LoggingVadDictionaryProxy(inMemoryCsvVadDictionary, logger);
     }

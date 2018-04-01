@@ -1,14 +1,15 @@
-package solutions.moot.feelings.log;
+package me.espere.feelings.log;
 
+import me.espere.feelings.commons.Conditions;
+import me.espere.feelings.spec.dictionary.VadDictionary;
+import me.espere.feelings.spec.dictionary.VadEntry;
+import me.espere.feelings.spec.dictionary.VadValue;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.slf4j.Logger;
-import solutions.moot.feelings.spec.dictionary.VadDictionary;
-import solutions.moot.feelings.spec.dictionary.VadEntry;
-import solutions.moot.feelings.spec.dictionary.VadValue;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -16,7 +17,6 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static solutions.moot.feelings.commons.Conditions.equalTo;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LoggingVadDictionaryProxyTest {
@@ -54,9 +54,9 @@ public class LoggingVadDictionaryProxyTest {
         assertThat(vadEntry.getWord()).isEqualToIgnoringCase("abnormal");
 
         VadValue vadValue = entry.getVadValue();
-        assertThat(vadValue.getValence()).is(equalTo(0.0));
-        assertThat(vadValue.getArousal()).is(equalTo(0.0));
-        assertThat(vadValue.getDominance()).is(equalTo(0.0));
+        assertThat(vadValue.getValence()).is(Conditions.equalTo(0.0));
+        assertThat(vadValue.getArousal()).is(Conditions.equalTo(0.0));
+        assertThat(vadValue.getDominance()).is(Conditions.equalTo(0.0));
     }
 
     @Test

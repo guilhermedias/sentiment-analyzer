@@ -1,8 +1,8 @@
-package solutions.moot.feelings;
+package me.espere.feelings;
 
-import solutions.moot.feelings.spec.analyzer.VadSentenceAnalyzer;
-import solutions.moot.feelings.spec.dictionary.VadValue;
-import solutions.moot.feelings.util.SentenceVadValuePrinter;
+import me.espere.feelings.spec.analyzer.VadSentenceAnalyzer;
+import me.espere.feelings.spec.dictionary.VadValue;
+import me.espere.feelings.util.SentenceVadValuePrinter;
 
 public class AppLogic {
     private VadSentenceAnalyzer analyzer;
